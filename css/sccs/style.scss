@@ -1,0 +1,46 @@
+@import "variables";
+@import "mixins";
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    @include link($aColor, 10%, rgb(201, 100, 100), rgb(192, 0, 0));
+}
+
+.grid div {
+    @include grid(2, 4%);
+}
+
+.block:not(.first) {
+    @include font;
+    background: $bgColor;
+    // height: 200px;
+    margin-bottom: 20px;
+    width: $blockWidth;
+    overflow: auto;
+
+    li {
+        a {
+            color: bisque;
+        }
+    }
+}
+
+.first {
+    @include marg(20px 10px){
+        background: darkblue;
+    };
+    height: 200px;
+    border: $border;
+}
+
+@for $i from 1 to 9 {
+    .gridDark#{$i} {
+        color: darken(#fff, $i*10%);
+    }
+}
